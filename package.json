@@ -1,6 +1,6 @@
 {
   "name": "@liuzw/dsh-pwa-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Window Controls Overlay title bar for the DSH web app: the manifest opts in, and the app's own logo row and session header become the window caption. 让 DSH Web 应用清单启用 Window Controls Overlay，把应用自身的 logo 行与会话 header 变成窗口标题栏。",
   "type": "module",
   "license": "MIT",
