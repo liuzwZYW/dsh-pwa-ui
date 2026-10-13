@@ -5,4 +5,4 @@
 
 - insert:
     - id: web-overlay-titlebar
-      name: 'dsh-pwa-ui'
+      name: '@liuzw/dsh-pwa-ui'

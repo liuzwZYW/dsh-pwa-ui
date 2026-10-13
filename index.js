@@ -12,7 +12,7 @@
  * The route is public like the static file it replaces: only the index
  * response passes browser authentication. The Client half draws the title bar
  * and reserves its height.
- * @module dsh-pwa-ui
+ * @module @liuzw/dsh-pwa-ui
  */
 import { realpathSync } from "node:fs";
 import { readFile } from "node:fs/promises";

@@ -17,7 +17,7 @@
  * environment variable is zero.
  */
 window.__ModuleLoader__.load({
-  id: 'dsh-pwa-ui',
+  id: '@liuzw/dsh-pwa-ui',
   factory() {
     /** Marker that switches the caption rules on. */
     const ACTIVE_ATTR = 'data-dsh-wco';
@@ -57,6 +57,17 @@ window.__ModuleLoader__.load({
       '-webkit-app-region:no-drag;',
       'app-region:no-drag;',
       '}',
+      /* The browser paints its own backdrop behind the caption buttons, and on a
+         reload that paint can land before the app repaints the same strip — the
+         two colours then disagree until the next frame. The proposed
+         `::window-controls-overlay` pseudo-element (WICG/window-controls-overlay
+         issue 67) is the way to hand that backdrop over to the page; until a
+         browser ships it these two rules are dropped as unknown selectors, and
+         once one does the caption backdrop becomes transparent so the app's own
+         background shows through instead. Kept as separate rules so an
+         unsupported form cannot invalidate the other. */
+      '::window-controls-overlay{background:transparent;}',
+      'html::window-controls-overlay{background:transparent;}',
       /* Only the surface that owns the window's trailing edge can reach the
          window controls. An open right panel owns it: the panel's own controls
          ride the end of its docking strip, so the strip takes the inset (its own
