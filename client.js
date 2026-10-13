@@ -81,6 +81,15 @@ window.__ModuleLoader__.load({
       `html[${ACTIVE_ATTR}]:not(:has([data-sidebar-right-panel][data-sidebar-right-open])) header[data-window-drag]{`,
       'padding-right:calc(28px + var(--dsh-wco-controls-end));',
       '}',
+      /* The header row is the main column's drag surface, but on the
+         sessionless/blank pages the shell collapses it (`min-height:0`, no top
+         padding) around an empty title row, so its drag box had no height at
+         all and the caption band above the main column could not move the
+         window. Give only that collapsed state the caption's height; the
+         ordinary header keeps the shell's own 76px row. */
+      `html[${ACTIVE_ATTR}] header[data-window-drag]:is([class*="_headerBlank"], [class*="_headerSessionless"]){`,
+      'min-height:env(titlebar-area-height, 0px);',
+      '}',
       /* The sidebar root's own 6px top / `--dsh-sidebar-inline-padding` box keeps
          the brand row off the window edges, so the caption's top-left corner was
          not draggable. Cancel that box on the brand row alone and carry the same
