@@ -98,7 +98,11 @@ drag rule. The client half reuses that contract instead of adding chrome:
   (the conversation header's `28px` trailing padding, the docking tab strip's
   `6px`, the brand row's `4px` inline-start padding and its `60px` / `36px`
   heights, and the sidebar root's `6px` box) and the `_logoRow` / `_root` /
-  `_collapsed` CSS-module suffixes.
+  `_collapsed` / `_headerBlank` / `_headerSessionless` / `_tabStrip` CSS-module
+  suffixes.
+- On the sessionless and blank pages the shell collapses the header row to no
+  height, which would leave the caption band above the main column with no drag
+  surface; that collapsed state is given the caption’s height instead.
 - The reserved strip is measured from the browser, not assumed: on Edge the
   caption chrome can be several hundred pixels wide, and that is the width the
   app's trailing controls are inset by.

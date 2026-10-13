@@ -49,7 +49,7 @@ shell 本来就声明了哪些行在桌面窗口下是拖拽把手：侧边栏�
   [`::window-controls-overlay`](https://github.com/WICG/window-controls-overlay/issues/67)
   提案要解决的问题；插件已写入 `::window-controls-overlay { background: transparent }`
   （两种写法各为一条独立规则，避免未支持的形式连带作废另一条）——该提案尚未实现，当前浏览器会把它们当未知选择器丢弃，等它落地后即自动生效、无需再改插件。在那之前，能影响这层背景的只有 manifest 的 `theme_color`。
-- 插件对准的是自带前端的钩子，前端改版时可能需要跟着更新：`data-window-drag` 标记、右侧栏的 `data-sidebar-right-panel` / `data-sidebar-right-open` / `data-dockkit-float` 属性与 `--dsh-dockkit-strip-inline-start`，以及若干被重述的值（会话 header 的 `28px` 右侧内边距、dock 标签条的 `6px`、品牌行的 `4px` 前导内边距与 `60px` / `36px` 行高、侧边栏根容器的 `6px` 盒子）和 `_logoRow` / `_root` / `_collapsed` 这几个 CSS-module 后缀。
+- 插件对准的是自带前端的钩子，前端改版时可能需要跟着更新：`data-window-drag` 标记、右侧栏的 `data-sidebar-right-panel` / `data-sidebar-right-open` / `data-dockkit-float` 属性与 `--dsh-dockkit-strip-inline-start`，以及若干被重述的值（会话 header 的 `28px` 右侧内边距、dock 标签条的 `6px`、品牌行的 `4px` 前导内边距与 `60px` / `36px` 行高、侧边栏根容器的 `6px` 盒子）和 `_logoRow` / `_root` / `_collapsed` / `_headerBlank` / `_headerSessionless` / `_tabStrip` 这几个 CSS-module 后缀。
 - 预留条带的宽度是量出来的、不是猜的：Edge 上这条浏览器 chrome 可能有几百像素宽，应用右侧控件就是按这个宽度让位的。
 - macOS 分支已实现（通过同一组变量做前导让位），但没有在真实 macOS 窗口上验证。
 
