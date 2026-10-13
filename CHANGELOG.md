@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.2
+
+- The caption band above the main column is draggable again on the sessionless
+  and blank pages. The shell collapses the header row to no height there
+  (`_headerBlank` sets `min-height: 0`, `_headerSessionless` drops the top
+  padding) around an empty title row, so the row's drag box had no height and
+  the band could not move the window. That collapsed state now takes the
+  caption's height; the ordinary 76px header row is untouched.
+
 ## 1.0.1
 
 Verification release for the npm Trusted Publisher. No functional change: the
