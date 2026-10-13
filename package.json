@@ -1,0 +1,59 @@
+{
+  "name": "dsh-pwa-ui",
+  "version": "1.0.0",
+  "description": "Window Controls Overlay title bar for the DSH web app: the manifest opts in, and the app's own logo row and session header become the window caption. 让 DSH Web 应用清单启用 Window Controls Overlay，把应用自身的 logo 行与会话 header 变成窗口标题栏。",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuzwZYW/dsh-pwa-ui.git"
+  },
+  "homepage": "https://github.com/liuzwZYW/dsh-pwa-ui#readme",
+  "bugs": {
+    "url": "https://github.com/liuzwZYW/dsh-pwa-ui/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "window-controls-overlay",
+    "titlebar",
+    "pwa",
+    "edge",
+    "chrome",
+    "windows",
+    "wsl"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "assets/*.png",
+    "screenshots.json",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.0-rc.2 <0.3.0-0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "PWA 覆盖式标题栏",
+    "description": "在 Web 应用清单中声明 window-controls-overlay，并把应用自身的 logo 行与会话 header 变成窗口标题栏。"
+  }
+}

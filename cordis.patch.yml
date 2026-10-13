@@ -1,0 +1,8 @@
+# Bundle patch: mounts the Window Controls Overlay caption for the DSH web
+# profile. The host row serves the Web app manifest with
+# `display_override: ["window-controls-overlay"]`; the browser half turns the
+# app's own chrome rows into the window caption.
+
+- insert:
+    - id: web-overlay-titlebar
+      name: 'dsh-pwa-ui'

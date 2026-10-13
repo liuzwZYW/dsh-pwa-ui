@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "PWA overlay title bar",
+    "description": "Declares window-controls-overlay in the web app manifest and turns the app's own logo row and session header into the window caption."
+  }
+}

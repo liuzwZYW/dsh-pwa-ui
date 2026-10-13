@@ -1,0 +1,30 @@
+# Publish to npm on a version tag.
+#
+# Authentication is npm Trusted Publishing (OIDC): no token, no secret. It
+# requires a one-time setup on npmjs.com — package → Settings → Trusted
+# Publisher: repository `liuzwZYW/dsh-pwa-ui`, workflow `publish.yml`.
+# The first publish of a brand-new package cannot use OIDC (the package must
+# already exist to carry that setting), so it is done once with a token.
+name: Publish to npm
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: https://registry.npmjs.org
+      # Trusted Publishing needs npm >= 11.5.1.
+      - run: npm install -g npm@latest
+      - run: npm publish --provenance --access public
